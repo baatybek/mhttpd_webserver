@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .board-container {
+            text-align: center;
+        }
+        .actions-container {
+            padding: 8px;
+            text-align: center;
+        }
+        .button {
+            background-color: black;
+            border: none;
+            color: white;
+            padding: 15px 25px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: dimgrey;
+        }
+        .box{
+            padding: 15px 25px;
+            color:black;
+            font-family:Comic Sans MS,serif;
+        }
+        .box:hover {
+            border-color: black;
+        }
+        .list{
+            color:black;
+            font-family:Comic Sans MS,serif;
+            list-style-type: none;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 80%;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <script src="index.js" defer></script>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <title>mhttpd-100-team-anteater message board</title>
+</head>
+<body onload="processRefreshAction()">
+<div class="container-fluid" style="align-items:center">
+    <div class="row-fluid">
+        <div class="board-container">
+            <a href="/static/images/smile.png"><img src="/static/images/smile.png"style="width:100px;height:100px;"></a>
+            <h1 style ="font-size:40px;color:black;font-family:Comic Sans MS,serif;align:center">mhttpd-100-team-anteater-message-board</h1>
+            <div class="list">
+                <table id="dataTable" class="table" align="center">
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="actions-container">
+            <input class="box" type="text" id="username" name="username" placeholder="name" />
+            <input class="box" type="text" id="message" name="message" placeholder="message" />
+            <button class="button" id="sendButton" onclick="processSendAction()">SEND</button>
+            <button class="button" id="refreshButton" onclick="processRefreshAction()">REFRESH</button>
+            <button class="button" id="clearData" onclick="proccessClearAction()">CLEAR</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

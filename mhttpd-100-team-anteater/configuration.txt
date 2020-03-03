@@ -1,0 +1,29 @@
+Port 8080
+AccessLog docs/access_log.log
+ErrorLog docs/error_log.log
+ThreadPool 10
+DocumentRoot docs
+ErrorDocument403 docs/errors/403.html
+ErrorDocument404 docs/errors/404.html
+ErrorDocument405 docs/errors/405.html
+ErrorDocument500 docs/errors/500.html
+
+Handler staticHandler StaticHandler {
+  Param Ignore static/ignore
+}
+
+Handler dynamicHandler DynamicHandler {
+  Param MessageBoardName mhttpd-100-team-anteater-message-board
+  Param LogoUrl /static/images/smile.png
+  Param MessageBoard docs/message-board.txt
+  Param JSONData docs/data.json
+  Param defaultFile docs/index.html
+  Param javaScriptFile docs/index.js
+  Param maxMessages 10
+  Param maxMessageLength 140
+  Param maxAuthorLength 16
+}
+
+Context /static staticHandler
+Context /static2 staticHandler
+Context / dynamicHandler
